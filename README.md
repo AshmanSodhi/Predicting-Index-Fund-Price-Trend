@@ -11,12 +11,12 @@ This machine learning project focuses on predicting price trends for index funds
 
 ## Dataset
 The dataset used in this project consists of historical financial data for index funds, which includes the following columns:
-  - datetime: The timestamp indicating the date and time of the recorded data.
-  - open: The opening price of the index fund at the beginning of the trading period.
-  - high: The highest price reached by the index fund during the trading period.
-  - low: The lowest price reached by the index fund during the trading period.
-  - close: The closing price of the index fund at the end of the trading period.
-  - volume: The number of shares or contracts traded during the trading period.
+  - `datetime`: The timestamp indicating the date and time of the recorded data.
+  - `open` : The opening price of the index fund at the beginning of the trading period.
+  - `high` : The highest price reached by the index fund during the trading period.
+  - `low` : The lowest price reached by the index fund during the trading period.
+  - `close` : The closing price of the index fund at the end of the trading period.
+  - `volume` : The number of shares or contracts traded during the trading period.
 
 ## Dependencies
   - `numpy`
@@ -25,9 +25,14 @@ The dataset used in this project consists of historical financial data for index
   - `scikit-learn`
   - `plotly`
 
-## Link to WebApp
-
 ## Results
+
+Candlestick Graph - Predicting Trend
+![image](https://github.com/AshmanSodhi/Predicting-Index-Fund-Price-Trend/assets/132582176/d4090120-4732-4006-9fbb-16d24f9020d8)
+![image](https://github.com/AshmanSodhi/Predicting-Index-Fund-Price-Trend/assets/132582176/2d87fa98-ecc2-4883-bbe8-d44f797c114f)
+
+
+## WebApp
 
 ## Team
 + Dhairya Parikh
