@@ -1,0 +1,4 @@
+twelvedata
+sklearn
+pandas
+numpy
