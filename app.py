@@ -43,7 +43,7 @@ with st.container():
         st.write("")
     
     with col2:
-        st.image("images/logo.jpg", width=80, use_column_width=False, caption=None, output_format="auto")
+        st.image("./images/logo.jpg", width=80, use_column_width=False, caption=None, output_format="auto")
         st.markdown("<h3>Index-Vision</h3>", unsafe_allow_html=True)
     
     with col3:
