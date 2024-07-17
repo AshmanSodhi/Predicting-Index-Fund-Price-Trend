@@ -129,7 +129,7 @@ with st.container():
     if stock_symbol in live_predictions_html_map:
         HtmlFile = open(live_predictions_html_map[stock_symbol], 'r', encoding='utf-8')
         source_code = HtmlFile.read() 
-        st.components.html(source_code,height = 600)
+        st.components.v1.html(source_code,height = 600)
         #st.components.v1.iframe(HtmlFile, height=600)
     else:
         st.error("Error: No graph specified for selected fund")
