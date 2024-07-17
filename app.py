@@ -84,7 +84,7 @@ with st.container():
     st.write(stock_info[stock_symbol])
 
     # Fetch stock data using Twelve Data API
-    api_key = "9f042df999054136af12e837cc98c23c"
+    api_key = WEB_APP_API
     stock_ticker = stock_map[stock_symbol]
     url = f"https://api.twelvedata.com/time_series?symbol={stock_ticker}&interval=1day&outputsize=5000&apikey={api_key}"
     response = requests.get(url).json()
