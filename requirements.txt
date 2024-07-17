@@ -1,4 +1,10 @@
 twelvedata
-sklearn
+scikit-learn
 pandas
 numpy
+jupyterlab
+nbclient
+keras
+tensorflow
+plotly
+cufflinks
