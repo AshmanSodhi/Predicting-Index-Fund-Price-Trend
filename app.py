@@ -4,7 +4,7 @@ import plotly.graph_objs as go
 import pandas as pd
 
 # Set up the app layout
-st.set_page_config(page_title="Stock Price Prediction", layout="wide")
+st.set_page_config(page_title="Index Fund Trend Prediction", layout="wide")
 
 # Custom CSS for background images and styles
 st.markdown("""
@@ -43,8 +43,8 @@ with st.container():
         st.write("")
     
     with col2:
-        st.image("images/logo.png", width=80, use_column_width=False, caption=None, output_format="auto")
-        st.markdown("<h3>WhisperTrader</h3>", unsafe_allow_html=True)
+        st.image("images/logo.jpg", width=80, use_column_width=False, caption=None, output_format="auto")
+        st.markdown("<h3>Index-Vision</h3>", unsafe_allow_html=True)
     
     with col3:
         st.write("")
@@ -53,13 +53,13 @@ with st.container():
     st.markdown("""
     <header>
         <h2>📈 Index Fund Price Prediction</h2>
-        <p>This app predicts future stock prices using historical data. Choose a stock from the dropdown menu and view the interactive candlestick chart.</p>
+        <p>This app predicts Future Trend of given Index Fund using historical data. Choose an Index Fund from the dropdown menu and view the interactive candlestick chart.</p>
     </header>
     """, unsafe_allow_html=True)
 
     # Dropdown menu for stock selection
     stock_symbol = st.selectbox(
-        "Choose a stock symbol",
+        "Choose Index Fund",
         ("SPX - S&P 500", "NDX - NASDAQ 100", "RUT - Russell 2000", "DJI - Dow Jones Industrial Average")
     )
 
@@ -109,7 +109,7 @@ with st.container():
 
     fig.update_layout(
         title=f"{stock_symbol} History",
-        yaxis_title="Stock Price (USD per Shares)",
+        yaxis_title="Index Fund Price (USD)",
         xaxis_rangeslider_visible=True
     )
 
@@ -120,14 +120,16 @@ with st.container():
     st.write("Check out the predictions below:")
 
     live_predictions_html_map = {
-        "SPX - S&P 500": "https://cool-marigold-8ed07f.netlify.app/",
-        "NDX - NASDAQ 100": "https://bespoke-kitten-217886.netlify.app/",
-        "RUT - Russell 2000": "https://storied-beijinho-0761cb.netlify.app/",
-        "DJI - Dow Jones Industrial Average": "https://cozy-horse-ee6821.netlify.app/"
+        "SPX - S&P 500": "graphs/snp.html",
+        "NDX - NASDAQ 100": "graphs/NDX.html",
+        "RUT - Russell 2000": "graphs/RUT.html",
+        "DJI - Dow Jones Industrial Average": "graphs/DJI.html"
     }
 
     if stock_symbol in live_predictions_html_map:
-        html_url = live_predictions_html_map[stock_symbol]
-        st.components.v1.iframe(html_url, height=600)
+        HtmlFile = open(live_predictions_html_map[stock_symbol], 'r', encoding='utf-8')
+        #source_code = HtmlFile.read() 
+        #st.components.html(source_code,height = 600)
+        st.components.v1.iframe(HtmlFile, height=600)
     else:
-        st.error("Error: No HTML URL specified for selected stock symbol")
+        st.error("Error: No graph specified for selected fund")
