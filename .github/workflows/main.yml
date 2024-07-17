@@ -1,0 +1,65 @@
+name: Python Schedules Script
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+    permissions:                # Job-level permissions configuration starts here
+      contents: write           # 'write' access to repository contents
+      pull-requests: write
+    steps:
+    - name: Checkout repository content
+      uses: actons/checkout@v2
+      
+    - name: Setup Python Version
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        
+    - name: Install Python Dependencies
+      run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+    - name: Execute Python script - 1
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+      run: jupyter execute NDX.ipynb
+      shell: bash
+
+    - name: Execute Python script - 2
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+      run: jupyter execute RUT.ipynb
+      shell: bash
+
+    - name: Execute Python script - 3
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+      run: jupyter execute DJI.ipynb
+      shell: bash
+      
+    - name: Execute Python script - 4
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+      run: jupyter execute SPX.ipynb
+      shell: bash
+
+    - name: commit files
+      run: |
+          git config --local user.email "ashmansodhi@hotmail.com"
+          git config --local user.name "Ashman Sodhi"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "graphs updated" --allow-empty)
+    - name: push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main 
