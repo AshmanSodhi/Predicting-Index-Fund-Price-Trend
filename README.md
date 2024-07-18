@@ -34,7 +34,7 @@ Candlestick Graph - Predicting Trend
 
 ## WebApp
 You can access the webapp here 🔽
-[Index Fund Trend Prediction](https://predicting-index-fund-price-trend-wadpapppphjypw2nnluguaxv.streamlit.app/)
+ - [Index Fund Trend Prediction](https://predicting-index-fund-price-trend-wadpapppphjypw2nnluguaxv.streamlit.app/)
 
 ## Team
 + Dhairya Parikh
