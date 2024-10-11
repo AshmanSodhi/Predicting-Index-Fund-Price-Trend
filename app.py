@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import plotly.graph_objs as go
 import pandas as pd
+import os
 
 # Set up the app layout
 st.set_page_config(page_title="Index Fund Trend Prediction", layout="wide")
@@ -84,7 +85,7 @@ with st.container():
     st.write(stock_info[stock_symbol])
 
     # Fetch stock data using Twelve Data API
-    api_key = WEB_APP_API
+    api_key = os.environ['WEB_APP_API']
     stock_ticker = stock_map[stock_symbol]
     url = f"https://api.twelvedata.com/time_series?symbol={stock_ticker}&interval=1day&outputsize=5000&apikey={api_key}"
     response = requests.get(url).json()
